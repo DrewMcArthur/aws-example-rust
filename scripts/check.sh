@@ -5,19 +5,20 @@
 
 set -e
 
-cargo install --locked cargo-deny cargo-udeps cargo-audit cargo-pants
 # cannot install `cargo-outdated` currently
+cargo install --locked cargo-deny cargo-udeps cargo-audit cargo-pants # cargo-outdated
 
 cargo deny check --config config/cargo-deny.toml
 
 # unable to install currently
 # cargo outdated --exit-code 1
 
-# requires nightly?
-cargo +nightly udeps
+# TODO: get GH action working with nightly toolchain
+# cargo +nightly udeps
 
 rm -rf ~/.cargo/advisory-db
 cargo audit
 cargo pants
 cargo check
+
 echo Passed Check!
