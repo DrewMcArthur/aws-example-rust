@@ -6,7 +6,7 @@
 set -e
 
 # cannot install `cargo-outdated` currently
-cargo install --locked cargo-deny cargo-udeps cargo-audit cargo-pants # cargo-outdated
+cargo install --locked cargo-deny cargo-udeps cargo-audit cargo-pants || true # cargo-outdated
 
 cargo deny check --config config/cargo-deny.toml
 
