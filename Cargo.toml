@@ -1,0 +1,3 @@
+[workspace]
+members = ["example-lambda-rs"]
+resolver = "2"
