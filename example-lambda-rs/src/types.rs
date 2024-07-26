@@ -6,6 +6,7 @@ pub struct Metadata {
     pub bucket: Option<String>,
     pub key: Option<String>,
     pub hash: Option<String>,
+    pub extra: Option<String>,
 }
 
 impl From<&S3EventRecord> for Metadata {
@@ -13,7 +14,13 @@ impl From<&S3EventRecord> for Metadata {
         let bucket = record.s3.bucket.name.clone();
         let key = record.s3.object.key.clone();
         let hash = record.s3.object.e_tag.clone();
-        Metadata { bucket, key, hash }
+        let extra = record.extra.clone();
+        Metadata {
+            bucket,
+            key,
+            hash,
+            extra,
+        }
     }
 }
 
