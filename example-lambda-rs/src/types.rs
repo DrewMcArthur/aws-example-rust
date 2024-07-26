@@ -3,9 +3,9 @@ use serde::Serialize;
 
 #[derive(Debug, Serialize)]
 pub struct Metadata {
-    bucket: Option<String>,
-    key: Option<String>,
-    hash: Option<String>,
+    pub bucket: Option<String>,
+    pub key: Option<String>,
+    pub hash: Option<String>,
 }
 
 impl From<&S3EventRecord> for Metadata {
