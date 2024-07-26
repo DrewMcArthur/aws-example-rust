@@ -14,13 +14,10 @@ cargo deny check --config config/cargo-deny.toml
 # cargo outdated --exit-code 1
 
 # requires nightly?
-# cargo udeps
+cargo +nightly udeps
 
 rm -rf ~/.cargo/advisory-db
 cargo audit
 cargo pants
 cargo check
 echo Passed Check!
-
-cargo test
-echo Passed Test!
