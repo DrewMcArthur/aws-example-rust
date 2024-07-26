@@ -3,8 +3,9 @@
 This repository is designed to be an example codebase to run some rust code inside lambdas on AWS.
 
 Deploying this cloudformation stack will create a bucket, a queue, and a lambda.  
-When you update the bucket (e.g. adding a file), it will trigger an sqs message,
-which triggers the lambda. The lambda simply logs the message.
+When you update the bucket (e.g. adding or removing a file),
+it will trigger an sqs message, which triggers the lambda.
+The lambda logs the event and parses it a little bit.
 
 ## Setup
 
