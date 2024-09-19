@@ -1,0 +1,30 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing Rust"
+      - curl https://sh.rustup.rs -sSf | sh -s -- -y
+      - source $HOME/.cargo/env
+      - rustup install stable
+      - rustup default stable
+      - rustc --version
+
+  # pre_build:
+  #   commands:
+  #     - echo "Installing dependencies"
+  #     - cargo install 
+
+  build:
+    commands:
+      - echo "Building the Rust project"
+      - cargo build --release
+
+  post_build:
+    commands:
+      - echo "Build completed"
+      - cargo test --release
+
+artifacts:
+  files:
+    - target/release/example-lambda-rs
